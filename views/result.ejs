@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Результат</title>
+  </head>
+  <body>
+    <h1>Результат обробки даних</h1>
+    <p>Дякуємо за надіслані дані, <%= name %>! email: <%= email %></p>
+    <!--  -->
+    <form action="/aa" method="post">
+      <label for="username">Ім'я:</label>
+      <input type="text" id="username" name="username" required />
+      <br />
+      <label for="password">password:</label>
+      <input type="password" id="password" name="password" required />
+      <br />
+      <input type="submit" value="Відправити" />
+    </form>
+    <!--  -->
+  </body>
+</html>
