@@ -4,6 +4,7 @@ const app = express();
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const Card = require("./model/Card");
+const CardWithMoreInf = require("./model/CardWithMoreInf");
 require("dotenv").config();
 app.engine("ejs", require("ejs").renderFile);
 app.set("view engine", "ejs");
@@ -25,9 +26,13 @@ app.get("/base", function (req, res) {
 app.post("/add", async (req, res) => {
   const name = req.body.name;
   const email = req.body.email;
-  const newCard = new Card({ name, email });
+  const password = req.body.password;
+  const age = req.body.age;
+  // const newCard = new Card({ name, email });
+  const newCard = new CardWithMoreInf({ name, email, age, password });
+
   await newCard.save();
-  res.render("result", { name, email });
+  res.render("result.ejs", { name, email });
 });
 app.post("/aa", (req, res) => {
   const username = req.body.username;
