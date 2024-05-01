@@ -55,7 +55,7 @@ console.log("server started");
 
 const start = async () => {
   try {
-    await mongoose.connect(`${process.env.DB_URL}`, { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect(`${process.env.DB_URL}`);
     app.listen(port); //port
     console.log("connected to db");
   } catch (e) {

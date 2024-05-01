@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <title><%=allCards %></title> -->
+  </head>
+  <body>
+    <%if(allCards.length > 0) { %> <% allCards.forEach(card => { %>
+    <h1><%=card.name%></h1>
+    <h2><%=card.email%></h2>
+    <h3><%=card.age%></h3>
+    <hr />
+    <% }); %> <% } else { %>
+    <h3>No cards yet</h3>
+    <% } %>
+  </body>
 </html>
