@@ -18,4 +18,4 @@ const CardRegSchema = new Schema({
   },
 });
 
-module.exports = model("Card", CardRegSchema);
+module.exports = model("userCard", CardRegSchema);

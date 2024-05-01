@@ -3,8 +3,8 @@ const express = require("express");
 const app = express();
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
-const Card = require("./model/Card");
-const CardWithMoreInf = require("./model/CardWithMoreInf");
+// const Card = require("./model/Card");
+const userCard = require("./model/CardWithMoreInf");
 
 require("dotenv").config();
 app.engine("ejs", require("ejs").renderFile);
