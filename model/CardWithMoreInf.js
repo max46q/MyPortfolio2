@@ -11,11 +11,7 @@ const CardRegSchema = new Schema({
   age: {
     type: Number,
     required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
+  }
 });
 
 module.exports = model("userCard", CardRegSchema);

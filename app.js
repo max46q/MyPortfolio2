@@ -26,10 +26,9 @@ app.get("/base", function (req, res) {
 app.post("/add", async (req, res) => {
   const name = req.body.name;
   const email = req.body.email;
-  const password = req.body.password;
   const age = req.body.age;
   // const newCard = new Card({ name, email });
-  const newCard = new userCard({ name, email, age, password });
+  const newCard = new userCard({ name, email, age});
 
   await newCard.save();
   res.render("result.ejs", { name, email });
