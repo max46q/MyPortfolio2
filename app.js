@@ -23,12 +23,15 @@ app.get("/base", function (req, res) {
   res.render("otherFile");
 });
 
+app.get("/all", async (req, res) => {
+  const allCards = await userCard.find(); //дістає всіх користувачів з модельки userCards
+  res.render("all", { allCards });
+});
+
 app.post("/add", async (req, res) => {
-  const name = req.body.name;
-  const email = req.body.email;
-  const age = req.body.age;
+  const { name, email, age } = req.body;
   // const newCard = new Card({ name, email });
-  const newCard = new userCard({ name, email, age});
+  const newCard = new userCard({ name, email, age });
 
   await newCard.save();
   res.render("result.ejs", { name, email });
@@ -49,9 +52,10 @@ app.post("/aa", (req, res) => {
 const port = process.env.PORT || 3000;
 console.log("server started");
 
+
 const start = async () => {
   try {
-    await mongoose.connect(`${process.env.DB_URL}`);
+    await mongoose.connect(`${process.env.DB_URL}`, { useNewUrlParser: true, useUnifiedTopology: true });
     app.listen(port); //port
     console.log("connected to db");
   } catch (e) {
