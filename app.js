@@ -5,6 +5,7 @@ const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const Card = require("./model/Card");
 const CardWithMoreInf = require("./model/CardWithMoreInf");
+
 require("dotenv").config();
 app.engine("ejs", require("ejs").renderFile);
 app.set("view engine", "ejs");
@@ -34,6 +35,7 @@ app.post("/add", async (req, res) => {
   await newCard.save();
   res.render("result.ejs", { name, email });
 });
+
 app.post("/aa", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;

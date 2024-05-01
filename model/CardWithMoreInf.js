@@ -9,7 +9,7 @@ const CardRegSchema = new Schema({
     required: true,
   },
   age: {
-    text: Number,
+    type: Number,
     required: true,
   },
   password: {
