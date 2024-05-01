@@ -3,7 +3,6 @@ const express = require("express");
 const app = express();
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
-// const Card = require("./model/Card");
 const userCard = require("./model/CardWithMoreInf");
 
 require("dotenv").config();
@@ -30,7 +29,7 @@ app.post("/add", async (req, res) => {
   const password = req.body.password;
   const age = req.body.age;
   // const newCard = new Card({ name, email });
-  const newCard = new CardWithMoreInf({ name, email, age, password });
+  const newCard = new userCard({ name, email, age, password });
 
   await newCard.save();
   res.render("result.ejs", { name, email });
