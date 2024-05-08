@@ -72,5 +72,22 @@
     <% } else { %>
         <p>Немає жодного користувача</p>
     <% } %>
+<hr/>
+<h2>email and password</h2>
+    <% if(allUsers.length > 0) { %>
+        <% allUsers.forEach(user => { %>
+          <div class="user">
+            <div class="user-details">
+                <div class="user-email"><%= user.email %></div>
+                <div class="user-passwrod">Пароль <%= user.passwrod %></div>
+            </div>
+        </div>
+        <form action="/deleteUser/<%= user._id %>"method="post">
+            <button type="submit">Delete</button>
+        </form>
+    <% }); %>
+      <% } else { %>
+          <p>Немає жодного користувача</p>
+      <% } %>
 </body>
 </html>

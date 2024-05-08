@@ -67,7 +67,7 @@
       }
     </style>
   </head>
-  <body>
+  <>
     <form action="/add" method="post">
       <label for="name">Ім'я:</label>
       <input type="text" id="name" name="name" required />
@@ -77,13 +77,22 @@
       <label for="age">Вік:</label>
       <input type="number" id="age" name="age" min="1" max="120" required />
 
-      <label for="image">Вставте URL зображення:</label>
-      <input type="url" id="image" name="image"  />
+      <label for="avatar">Вставте URL зображення:</label>
+      <input type="url" id="avatar" name="avatar"  />
       <input type="submit" value="Відправити" />
     </form>
 
     <!-- Add the "Open All" button -->
     <a href="/all" class="open-all-btn">відкрити всі</a>
+
+
+    <form action="/addUser" method="post">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <label for="password">Пароль:</label>
+      <input type="text" id="password" name="password" required />
+      <input type="submit" value="Відправити" />
+    </form>
 
     <main>
       <% if (error) { %>
