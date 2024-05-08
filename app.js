@@ -3,13 +3,12 @@ const express = require("express");
 const app = express();
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
-const userCard = require("./model/CardWithMoreInf");
+const user = require("./model/CardWithMoreInf");
 
 require("dotenv").config();
 app.engine("ejs", require("ejs").renderFile);
 app.set("view engine", "ejs");
-//
-//
+
 app.use(express.static(__dirname + "/views"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
@@ -24,14 +23,13 @@ app.get("/base", function (req, res) {
 });
 
 app.get("/all", async (req, res) => {
-  const allCards = await userCard.find(); //дістає всіх користувачів з модельки userCards
+  const allCards = await user.find(); //дістає всіх користувачів з модельки users
   res.render("all", { allCards });
 });
 
 app.post("/add", async (req, res) => {
-  const { name, email, age } = req.body;
-  // const newCard = new Card({ name, email });
-  const newCard = new userCard({ name, email, age });
+  const { name, email, age, image } = req.body;
+  const newCard = new user({ name, email, age, image });
 
   await newCard.save();
   res.render("result.ejs", { name, email });
@@ -49,9 +47,9 @@ app.post("/aa", (req, res) => {
     res.render("home", { error });
   }
 });
+
 const port = process.env.PORT || 3000;
 console.log("server started");
-
 
 const start = async () => {
   try {
