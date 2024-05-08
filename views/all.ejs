@@ -54,11 +54,11 @@
 </head>
 <body>
     <h1>Всі користувачі</h1>
-    <% if(cardWithPhoto.length > 0) { %>
-        <% cardWithPhoto.forEach(user => { %>
+    <% if(newCard.length > 0) { %>
+        <% newCard.forEach(user => { %>
             <div class="user">
-                <div class="image">
-                    <img src="<%= user.image %>" alt="Image">
+                <div class="avatar">
+                    <img src="<%= user.avatar %>" alt="Avatar">
                 </div>
                 <div class="user-details">
                     <div class="user-name"><%= user.name %></div>
