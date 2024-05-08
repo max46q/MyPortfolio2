@@ -54,21 +54,21 @@
 </head>
 <body>
     <h1>Всі користувачі</h1>
-    <% if(newCard.length > 0) { %>
-        <% newCard.forEach(user => { %>
-            <div class="user">
-                <div class="avatar">
-                    <img src="<%= user.avatar %>" alt="Avatar">
-                </div>
-                <div class="user-details">
-                    <div class="user-name"><%= user.name %></div>
-                    <div class="user-age">Вік: <%= user.age %></div>
-                </div>
-            </div>
-            <form action="/delete/<%= user._id %>"method="post">
-                <button type="submit">Delete</button>
-            </form>
-        <% }); %>
+    <% if(allCards.length > 0) { %>
+      <% allCards.forEach(user => { %>
+        <div class="user">
+          <div class="avatar">
+              <img src="<%= user.avatar %>" alt="Avatar">
+          </div>
+          <div class="user-details">
+              <div class="user-name"><%= user.name %></div>
+              <div class="user-age">Вік: <%= user.age %></div>
+          </div>
+      </div>
+      <form action="/delete/<%= user._id %>"method="post">
+          <button type="submit">Delete</button>
+      </form>
+  <% }); %>
     <% } else { %>
         <p>Немає жодного користувача</p>
     <% } %>

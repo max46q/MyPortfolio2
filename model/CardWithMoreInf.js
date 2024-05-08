@@ -17,4 +17,4 @@ const CardRegSchema = new Schema({
   }
 });
 
-module.exports = model("user", CardRegSchema);
+module.exports = model("userCard", CardRegSchema);

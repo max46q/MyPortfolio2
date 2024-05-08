@@ -29,13 +29,22 @@ app.get("/all", async (req, res) => {
   res.render("all", { allCards });
 });
 
+app.post('/delete/:id', async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  await userCard.deleteOne({ _id: id });
+; 
+  res.redirect('/all');
+})
+
+
 app.post("/add", async (req, res) => {
   const { name, email, age, avatar } = req.body;
   // const newCard = new Card({ name, email });
   const newCard = new userCard({ name, email, age, avatar });
 
   await newCard.save();
-  res.render("result.ejs", { name, email});
+  res.render("result.ejs", { name, email });
 });
 
 app.post("/aa", (req, res) => {
